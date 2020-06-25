@@ -16,7 +16,7 @@ public class OpentheLock {
             aSet.add(aString);
         }
 
-        Set<String> tmpSet = new HashSet<>();
+        Set<String> visited = new HashSet<>();
 
         LinkedList<String> aQueue = new LinkedList<>();
         aQueue.offer("0000");
@@ -39,9 +39,9 @@ public class OpentheLock {
                     candidateString = replaceCharUsingCharArray(innerString, charForDigit, i);
                     if (candidateString.equals(target))
                         return ++count;
-                    if (!aSet.contains(candidateString) && !tmpSet.contains(candidateString)) {
+                    if (!aSet.contains(candidateString) && !visited.contains(candidateString)) {
                         aQueue.offer(candidateString);
-                        tmpSet.add(candidateString);
+                        visited.add(candidateString);
                     }
 
                     nextInt = tmpInt-1 < 0?9:tmpInt-1;
@@ -50,9 +50,9 @@ public class OpentheLock {
                     candidateString = replaceCharUsingCharArray(innerString, charForDigit, i);
                     if (candidateString.equals(target))
                         return ++count;
-                    if (!aSet.contains(candidateString) && !tmpSet.contains(candidateString)) {
+                    if (!aSet.contains(candidateString) && !visited.contains(candidateString)) {
                         aQueue.offer(candidateString);
-                        tmpSet.add(candidateString);
+                        visited.add(candidateString);
                     }
                 }
             }
