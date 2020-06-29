@@ -10,8 +10,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class MedianFinder {
-    Queue<Integer> maxHeap = new PriorityQueue<>();
-    Queue<Integer> minHeap = new PriorityQueue<>(Collections.reverseOrder());
+    Queue<Integer> smaller = new PriorityQueue<>(Collections.reverseOrder());
+    Queue<Integer> larger = new PriorityQueue<>();
     boolean even = true;
     /** initialize your data structure here. */
     public MedianFinder() {
@@ -20,11 +20,11 @@ public class MedianFinder {
 
     public void addNum(int num) {
         if (even) {
-            maxHeap.offer(num);
-            minHeap.offer(maxHeap.poll());
+            larger.offer(num);
+            smaller.offer(larger.poll());
         } else {
-            minHeap.offer(num);
-            maxHeap.offer(minHeap.poll());
+            smaller.offer(num);
+            larger.offer(smaller.poll());
         }
 
         even = !even;
@@ -32,8 +32,8 @@ public class MedianFinder {
 
     public double findMedian() {
         if (even) {
-            return (maxHeap.peek() + minHeap.peek())/2.0;
-        } else return minHeap.peek();
+            return (smaller.peek() + larger.peek())/2.0;
+        } else return smaller.peek();
     }
 
     @Test
