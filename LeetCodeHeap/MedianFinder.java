@@ -2,6 +2,7 @@ package LeetCode.LeetCodeHeap;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -28,6 +29,10 @@ public class MedianFinder {
         }
 
         even = !even;
+
+        System.out.println("=================================");
+        System.out.println(Arrays.toString(smaller.toArray()));
+        System.out.println(Arrays.toString(larger.toArray()));
     }
 
     public double findMedian() {
@@ -39,11 +44,20 @@ public class MedianFinder {
     @Test
     public void test() {
         MedianFinder obj = new MedianFinder();
-        obj.addNum(1);
+        /*obj.addNum(1);
         obj.addNum(2);
         assertThat(obj.findMedian(), is(1.5));
         obj.addNum(3);
         assertThat(obj.findMedian(), is(2.0));
+*/
+        obj = new MedianFinder();
+        obj.addNum(41);
+        obj.addNum(35);
+        obj.addNum(62);
+        obj.addNum(4);
+        obj.addNum(97);
+        obj.addNum(108);
+        assertThat(obj.findMedian(), is(51.5));
     }
 }
 
