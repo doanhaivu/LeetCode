@@ -9,9 +9,9 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
 
-    TreeNode() {}
+    public TreeNode() {}
 
-    TreeNode(Integer val) { this.val = val; }
+    public TreeNode(Integer val) { this.val = val; }
 
     TreeNode(Integer val, TreeNode left, TreeNode right) {
         this.val = val;

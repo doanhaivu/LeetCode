@@ -74,6 +74,7 @@ class BSTIterator {
         Integer[] nums = new Integer[]{7,3,15,null,null,9,20};
         Tree aTree = new Tree();
         TreeNode root = aTree.fromArray(nums);
+        root.printTree();
 
         BSTIterator iterator = new BSTIterator();
         iterator.init(root);
@@ -91,6 +92,7 @@ class BSTIterator {
         nums = new Integer[]{1};
         aTree = new Tree();
         root = aTree.fromArray(nums);
+        root.printTree();
 
         iterator = new BSTIterator();
         iterator.init(root);
