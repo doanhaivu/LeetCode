@@ -19,6 +19,10 @@ public class TreeNode {
         this.right = right;
     }
 
+    public boolean hasValue() {
+        return val != null;
+    }
+
     /**
      * https://www.baeldung.com/java-print-binary-tree-diagram
      * https://www.geeksforgeeks.org/print-binary-tree-2-dimensions/
