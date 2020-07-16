@@ -10,6 +10,9 @@ import static org.hamcrest.Matchers.is;
 
 public class LongestSubstringWithoutRepeatingCharacters {
 
+    /**
+     * Solution Tag: Sliding Window
+     */
     public int lengthOfLongestSubstring(String s) {
         if (s.length() <= 1) return s.length();
 
