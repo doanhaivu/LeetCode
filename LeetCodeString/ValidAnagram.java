@@ -2,9 +2,7 @@ package LeetCode.LeetCodeString;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -39,6 +37,32 @@ public class ValidAnagram {
         }
         return true;
     }
+
+    private void allAnagram(char[] s, int start, ArrayList<String> ret) {
+        if (start == s.length -1) {
+            ret.add(String.valueOf(s));
+            return;
+        }
+        for (int i = start; i < s.length; i++) {
+            swap(s, start, i);
+            allAnagram(s, start+1, ret);
+            swap(s, start, i);
+        }
+    }
+
+    private void swap(char[] arr, int i, int j) {
+        char tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+
+    @Test
+    public void testAnagram() {
+        ArrayList<String> ret = new ArrayList<>();
+        allAnagram("abc".toCharArray(), 0, ret);
+        System.out.println(Arrays.toString(ret.toArray(new String[ret.size()])));
+    }
+
 
     @Test
     public void test() {
