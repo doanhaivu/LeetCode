@@ -29,9 +29,7 @@ public class InorderTraversal {
 
         if (root != null) {
             Stack aStack = new Stack();
-            //aStack.push(root);
             TreeNode aNode = root;
-            //while (!aStack.empty()) {
             while (aNode != null ||  !aStack.empty()) {
                 while (aNode != null) {
                     aStack.push(aNode);
