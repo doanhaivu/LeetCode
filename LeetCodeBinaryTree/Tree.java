@@ -60,6 +60,21 @@ public class Tree {
         return root;
     }
 
+    public TreeNode getNode(TreeNode root, int value) {
+        TreeNode tmp = root;
+
+        while (tmp != null) {
+            if (tmp.val == value)
+                return tmp;
+            if (tmp.val > value) {
+                tmp = tmp.left;
+            } else
+                tmp = tmp.right;
+        }
+
+        return tmp;
+    }
+
     public int maxDepth(TreeNode root) {
         if (root == null) return 0;
         int leftDepth = maxDepth(root.left);
